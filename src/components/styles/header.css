@@ -1,0 +1,34 @@
+.container-fluid{
+	background: #1a2a2e;
+	color: #fff;
+}
+.logo img{
+	width: 250px;
+	height: 50px;
+}
+.menu{
+	position: static;
+    width: auto;
+    height: auto;
+    transform: translateX(0%);
+    float: right;
+    display: flex;
+    background: transparent;
+    border: none;
+    margin-top: 10px;
+}
+.menu a{
+	display: block;
+  color: white;
+   text-decoration: none;
+   padding: 10px 20px;
+   line-height: normal;
+   font-size: 20px;
+   font-weight: bold;
+  transition-duration: 500ms;
+  border-bottom: solid 1px #1f7388;
+}
+.menu a:hover{
+  background: #1f7388;
+  border-radius: 5px;
+}
