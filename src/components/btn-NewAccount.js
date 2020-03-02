@@ -6,7 +6,7 @@ const CreateNewAccount = () => (
 		<div>
 			<h1>Home</h1>
 		</div>
-		<Link to="Dashboard">Create an Account</Link>
+		<Link to="create">Create an Account</Link>
 
 	</div>
 )
