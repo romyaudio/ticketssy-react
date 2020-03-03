@@ -29,10 +29,9 @@ class newAccountContaine extends React.Component{
     	try{
     		let config = {
     			method: 'POST',
-    			header:{
+    			headers:{
     				'Accept':'application/json',
-                    'Content-Type':'application/json',
-                    'api_token':'04tk5QIjM8ohmdiqjvDmtxhqGCyXlTb2VXZkM9i1CYh0V9U4l8BLmWrru57F'
+                    'Content-Type':'application/json'
                   
     			},
 
