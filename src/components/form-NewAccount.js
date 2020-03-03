@@ -35,7 +35,7 @@ const formNewAccount = ({onChange,onSubmit,form}) =>(
 	<input
 	 type="password" 
 	 className="form-control"
-	 name="exampleInputPassword1"
+	 name="password"
 	 onChange={onChange}
 	 value={form.password}
 	 />
@@ -46,7 +46,7 @@ const formNewAccount = ({onChange,onSubmit,form}) =>(
 	<input
 	 type="password"
 	 className="form-control"
-	 name="exampleInputPassword1"
+	 name="confiPassword"
 	 onChange={onChange}
 	 value={form.confiPassword}
 	 />
