@@ -6,7 +6,7 @@ const formNewAccount = ({onChange,onSubmit,form}) =>(
 	<form onSubmit={onSubmit}>
        
 	<div className="form-group">
-	<label for="exampleInputEmail1">Full name</label>
+	<label>Full name</label>
 	<input
 	 type="text" 
 	 className="form-control" 
@@ -18,7 +18,7 @@ const formNewAccount = ({onChange,onSubmit,form}) =>(
 	</div>
 
 	<div className="form-group">
-	<label for="exampleInputEmail1">Email address</label>
+	<label>Email address</label>
 	<input
 	 type="email" 
 	 className="form-control" 
@@ -31,7 +31,7 @@ const formNewAccount = ({onChange,onSubmit,form}) =>(
 	</div>
 
 	<div className="form-group">
-	<label for="exampleInputPassword1">Password</label>
+	<label>Password</label>
 	<input
 	 type="password" 
 	 className="form-control"
@@ -42,7 +42,7 @@ const formNewAccount = ({onChange,onSubmit,form}) =>(
 	</div>
 
 	<div className="form-group">
-	<label for="exampleInputPassword1">Confi-Password</label>
+	<label>Confi-Password</label>
 	<input
 	 type="password"
 	 className="form-control"
