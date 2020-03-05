@@ -1,7 +1,6 @@
 import React from 'react'
 import FormAccount from '../components/form-NewAccount'
 import Loading from '../components/Loading'
-import modalError from '../components/newAccountError'
 
 class newAccountContaine extends React.Component{
 	state = {
@@ -13,7 +12,8 @@ class newAccountContaine extends React.Component{
 		},
 
 		loading: false,
-        error: null
+        error: null,
+        isLoaded:false
         
 	}
 
@@ -46,29 +46,43 @@ class newAccountContaine extends React.Component{
 
     		let res = await fetch('http://localhost:8000/create',config)
             let json = await res.json()
+            if (json.isEmpty == "You must complete all fields!") {
+                this.setState({ 
+                items: json.isEmpty,
+                isLoaded:true,
+                 
+             })
+            }
+             
+                
+
+            
  
-            this.setState({
-                json,
-            	loading: false
-            })
             // this.props.history.push('/')
 
     	}catch(error){
-          this.setState({ error,loading: false });
+          this.setState({
+           error,
+           isLoaded:true
+          });
     	}
 
     }
 
     render(){
-    	if (this.state.loading)
-              return <Loading/>
-
-          if (this.state.json)
-            return <modalError
-             errors={this.state.json}
-             />
-        
-
+    	const {error,isLoaded,items,form}= this.state
+        if (error) {
+            return <div>Error: {error.message}</div>
+        }else if(!isLoaded) {
+            //return <div>Loading...</div>;
+        }else{
+            return(
+                 <ul>
+          {items}
+        </ul>
+                )
+        }
+  
     	return(
             
             <div>
