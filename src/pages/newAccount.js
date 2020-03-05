@@ -1,5 +1,5 @@
 import React from 'react'
-import FormAccount from '../components/form-NewAccount'
+import NewAccount from '../new/newAccount'
 import Loading from '../components/Loading'
 
 class newAccountContaine extends React.Component{
@@ -10,8 +10,6 @@ class newAccountContaine extends React.Component{
 			password: '',
 			confiPassword: ''
 		},
-
-		loading: false,
         error: null,
         isLoaded:false
         
@@ -29,7 +27,7 @@ class newAccountContaine extends React.Component{
   
     handleSubmit = async e =>{
     	this.setState({
-           loading: true
+           isLoaded: true
     	})
     	e.preventDefault()
     	try{
@@ -46,50 +44,51 @@ class newAccountContaine extends React.Component{
 
     		let res = await fetch('http://localhost:8000/create',config)
             let json = await res.json()
-            if (json.isEmpty == "You must complete all fields!") {
+            if (json.response === "You must complete all fields!") {
                 this.setState({ 
-                items: json.isEmpty,
-                isLoaded:true,
-                 
+                empty: json.response,
+                isLoaded:false   
              })
+            }else if(json.response === "The password does not match!"){
+                this.setState({
+                    empty:json.response,
+                    isLoaded:false
+                })
+            }else if(json.response === "This email is associated with an account!"){
+                this.setState({
+                    empty:json.response,
+                    isLoaded:false
+                })
+            }else{
+                this.setState({
+                    empty:'Account Create Successfully!',
+                    isLoaded:false
+                })
+                this.props.history.push('/')
             }
              
-                
-
-            
- 
-            // this.props.history.push('/')
-
     	}catch(error){
           this.setState({
            error,
-           isLoaded:true
           });
     	}
 
     }
 
     render(){
-    	const {error,isLoaded,items,form}= this.state
-        if (error) {
-            return <div>Error: {error.message}</div>
-        }else if(!isLoaded) {
-            //return <div>Loading...</div>;
-        }else{
-            return(
-                 <ul>
-          {items}
-        </ul>
-                )
-        }
+    	const {error,isLoaded,empty,form,loading}= this.state
+         if (isLoaded) {
+           return <Loading/>
+         }
   
     	return(
             
             <div>
-    		<FormAccount
+    		<NewAccount
     		form={this.state.form}
     		onChange={this.handleChange}
     		onSubmit={this.handleSubmit}
+            empty={empty}
     		/>
 
             </div>

@@ -1,11 +1,18 @@
 import React from 'react'
 import FormAccount from '../components/form-NewAccount'
+import ModalError from '../components/modalErrors'
 
-const newAccount = ({form,onChange,onSubmit}) => (
+const newAccount = ({form,onChange,onSubmit,empty}) => (
 
 	<div className="row">
+                <div className="container">
+                  <ModalError
+                  empty={empty}
 
-                <div className="col-sm">
+                 />
+                  
+                </div>
+                <div className="container">
 
                     <FormAccount
                        onChange={onChange}
