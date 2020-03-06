@@ -1,6 +1,7 @@
 import React from 'react'
 import NewAccount from '../new/newAccount'
 import Loading from '../components/Loading'
+import ConfirEmail from '../components/Confir-Email'
 
 class newAccountContaine extends React.Component{
 	state = {
@@ -61,10 +62,9 @@ class newAccountContaine extends React.Component{
                 })
             }else{
                 this.setState({
-                    empty:'Account Create Successfully!',
+                    successfully:'Account Create Successfully!',
                     isLoaded:false
                 })
-                this.props.history.push('/')
             }
              
     	}catch(error){
@@ -76,9 +76,16 @@ class newAccountContaine extends React.Component{
     }
 
     render(){
-    	const {error,isLoaded,empty,form,loading}= this.state
+    	const {error,isLoaded,empty,form,successfully}= this.state
          if (isLoaded) {
-           return <Loading/>
+           return <Loading />
+         }
+
+         if (successfully) {
+            return <ConfirEmail
+            form={form}
+
+            />
          }
   
     	return(

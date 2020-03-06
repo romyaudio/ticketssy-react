@@ -42,7 +42,7 @@ const formNewAccount = ({onChange,onSubmit,form}) =>(
 	</div>
 
 	<div className="form-group">
-	<label>Confi-Password</label>
+	<label>Confir-Password</label>
 	<input
 	 type="password"
 	 className="form-control"
