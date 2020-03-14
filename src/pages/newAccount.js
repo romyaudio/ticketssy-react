@@ -47,12 +47,12 @@ class newAccountContaine extends React.Component{
 
     		let res = await fetch('http://localhost:8000/api/create',config)
             let json = await res.json()
-            if (res.status == 422) {
+            if (res.status === 422) {
                 this.setState({
                  json:json.errors,
                 isLoaded:false
              })
-            }else if(res.status == 201){
+            }else if(res.status === 201){
                 this.setState({
                     json:[],
                     isLoaded:false,
