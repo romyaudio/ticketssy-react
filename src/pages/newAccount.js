@@ -43,7 +43,7 @@ class newAccountContaine extends React.Component{
     			body: JSON.stringify(this.state.form)
     		}
 
-    		let res = await fetch('http://localhost:8000/create',config)
+    		let res = await fetch('http://localhost:8000/api/create',config)
             let json = await res.json()
             if (json.response === "You must complete all fields!") {
                 this.setState({ 
