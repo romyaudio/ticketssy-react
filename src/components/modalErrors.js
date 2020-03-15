@@ -1,9 +1,9 @@
 import React from 'react'
 import './styles/ModalErrors.css'
 
-const ModalErrors = ({empty}) =>(
+const ModalErrors = ({empty,value}) =>(
 	<div className="contenedor">
-     <h4>{empty}</h4>
+     <h4>{value}</h4>
      </div>
 
 	)

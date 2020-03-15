@@ -9,11 +9,13 @@ class newAccountContaine extends React.Component{
 			name: '',
 			email: '',
 			password: '',
-			confiPassword: ''
+			password_confirmation: ''
 		},
         error: null,
-        isLoaded:false
-        
+        isLoaded:false,
+        response:null,
+        json:[]
+
 	}
 
 	handleChange = e => {
@@ -22,10 +24,10 @@ class newAccountContaine extends React.Component{
                 ...this.state.form,
                 [e.target.name]: e.target.value
             }
-            
+
         })
     }
-  
+
     handleSubmit = async e =>{
     	this.setState({
            isLoaded: true
@@ -37,7 +39,7 @@ class newAccountContaine extends React.Component{
     			headers:{
     				'Accept':'application/json',
                     'Content-Type':'application/json'
-                  
+
     			},
 
     			body: JSON.stringify(this.state.form)
@@ -45,28 +47,19 @@ class newAccountContaine extends React.Component{
 
     		let res = await fetch('http://localhost:8000/api/create',config)
             let json = await res.json()
-            if (json.response === "You must complete all fields!") {
-                this.setState({ 
-                empty: json.response,
-                isLoaded:false   
+            if (res.status === 422) {
+                this.setState({
+                 json:json.errors,
+                isLoaded:false
              })
-            }else if(json.response === "The password does not match!"){
+            }else if(res.status === 201){
                 this.setState({
-                    empty:json.response,
-                    isLoaded:false
-                })
-            }else if(json.response === "This email is associated with an account!"){
-                this.setState({
-                    empty:json.response,
-                    isLoaded:false
-                })
-            }else{
-                this.setState({
-                    successfully:'Account Create Successfully!',
-                    isLoaded:false
+                    json:[],
+                    isLoaded:false,
+                    successfully:'Account Create Successfully!'
                 })
             }
-             
+
     	}catch(error){
           this.setState({
            error,
@@ -76,7 +69,7 @@ class newAccountContaine extends React.Component{
     }
 
     render(){
-    	const {error,isLoaded,empty,form,successfully}= this.state
+    	const {error,isLoaded,form,successfully}= this.state
          if (isLoaded) {
            return <Loading />
          }
@@ -87,15 +80,15 @@ class newAccountContaine extends React.Component{
 
             />
          }
-  
+
     	return(
-            
+
             <div>
     		<NewAccount
     		form={this.state.form}
     		onChange={this.handleChange}
     		onSubmit={this.handleSubmit}
-            empty={empty}
+            errors={this.state.json}
     		/>
 
             </div>

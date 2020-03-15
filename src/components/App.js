@@ -2,6 +2,7 @@ import React from 'react'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import	Home from '../pages/Home'
 import newAccount from '../pages/newAccount'
+import Login from '../pages/login'
 
 function App(){
 	return(
@@ -9,9 +10,10 @@ function App(){
            <Switch>
              <Route exact path="/" component={Home}/>
              <Route exact path="/create" component={newAccount}/>
+             <Route exact path="/login" component={Login}/>
            </Switch>
         </BrowserRouter>
 		)
-	
+
 	}
 export default App

@@ -1,5 +1,5 @@
 import React from 'react'
-import HOME from '../components/btn-NewAccount'
+import HOME from '../components/Home'
 
 class Home extends React.Component{
     render(){
