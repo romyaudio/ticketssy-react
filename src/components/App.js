@@ -2,7 +2,7 @@ import React from 'react'
 import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import	Home from '../pages/Home'
 import newAccount from '../pages/newAccount'
-import Login from '../pages/login'
+import Login from '../pages/Login'
 
 function App(){
 	return(
