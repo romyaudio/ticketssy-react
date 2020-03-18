@@ -1,8 +1,8 @@
 import React from 'react'
 
-const ResetPassword = (form,onChange,onSubmit) =>(
+const ResetPassword = ({form,onChange,onSubmit}) =>(
 	<div className="container">
-	<form>
+	<form onSubmit={onSubmit}>
     <div className="form-group">
     <label>Email address</label>
     <input type="email" 

@@ -26,6 +26,7 @@ class ResetPassword extends React.Component{
 		return (
             <ResetPass
             onChange={this.hendleChange}
+            onSubmit={this.hendleSubmit}
             form={form}/>
 
 			)
