@@ -3,9 +3,10 @@ import {Link} from 'react-router-dom'
 import logo from '../img/logo.png'
 import './styles/header.css'
 
-function Header() {
+function Header({onClick}) {
 	return(
 		<div className="container-fluid">
+		<Link onClick={onClick} className="logout">Logout</Link>
 		  <div className="container">
 		    <div className="row">
              <div className="logo">
@@ -20,7 +21,7 @@ function Header() {
                 <Link>Items</Link>
                 <Link>Tickets</Link>
 		      </div>
-		    	
+
 		      </div>
 		    </div>
 		</div>
