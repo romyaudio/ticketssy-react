@@ -4,10 +4,16 @@ import axios from 'axios'
 import ConDashboard from '../components/Dashboard'
 
 class Dashboard extends React.Component {
+
+    
      state = {
      	name:""
      }
      componentDidMount() {
+        if (localStorage.getItem('token') === "") {
+        this.props.history.push('login');
+    }
+
      	let token = localStorage.getItem("token")
      	axios({
      		method: 'get',
@@ -21,6 +27,11 @@ class Dashboard extends React.Component {
      			name: response.data.name
      		})
      	})
+
+        .catch(error=>{
+            this.props.history.push('login');
+            localStorage.setItem('token','')
+        })
 
 
      }
@@ -38,6 +49,11 @@ class Dashboard extends React.Component {
 				this.props.history.push('login');
 				localStorage.setItem('token','')
 			})
+
+            .catch(error=>{
+                this.props.history.push('login');
+                localStorage.setItem('token','')
+            })
 		}
 
 
@@ -47,10 +63,11 @@ class Dashboard extends React.Component {
     		<div>
               <Header
               onClick={this.hendleClick}
+              buss={this.state.name}
               />
               <div>
               <ConDashboard
-              token={this.state.name}/>
+              />
               </div>
             </div>
 

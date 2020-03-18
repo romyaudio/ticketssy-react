@@ -1,17 +1,16 @@
 import React from 'react'
 import FormLogin from '../components/form-Login'
-import axios from 'axios'
 import Loading from '../components/Loading'
-axios.defaults.baseURL = 'http://localhost:8000'
 
 class Login extends React.Component{
 	state = {
 		form:{
-			email: 'romyaudio@hotmail.com',
-			password: "malone32"
+			email: '',
+			password: ""
 		},
-		error:null,
-        loading:false
+		errors:[],
+        loading:false,
+        errF:[]
 	}
 	hendleChange = e =>{
        this.setState({
@@ -21,30 +20,54 @@ class Login extends React.Component{
           }
       })
    }
-   hendleSubmit = e =>{
+   hendleSubmit = async e =>{
      this.setState({
         loading:true
      })
        e.preventDefault()
-       axios.post('/api/login',{
-           email:this.state.form.email,
-           password:this.state.form.password
-       })
-       .then(response =>{
-        this.setState({
-            loading:false
-        })
-          localStorage.setItem('token' , response.data)
-          this.props.history.push('dashboard')
-      })
+       try{
+        let config = {
+            method:'POST',
+            headers:{
+              'Accept':'application/json',
+              'Content-Type':'application/json'
+            },
+            body: JSON.stringify(this.state.form)
 
-       .catch(error =>{
-        localStorage.setItem('token' , '')
-    })
+        }
+          let res = await fetch('http://localhost:8000/api/login',config)
+          let json = await res.json()
+
+          if (res.status === 201) {
+              this.setState({
+                loading:false,
+                errors:[]
+              })
+
+              localStorage.setItem('token',json)
+              this.props.history.push('dashboard')
+
+          }else if(res.status === 422){
+            this.setState({
+                loading:false,
+                errors:json.errors
+              })
+            localStorage.setItem('token','')
+
+          }else{
+            this.setState({
+              errF:json.errors,
+              loading:false,
+            })
+          }
+       }catch(error){
+
+       }
+//       
 
    }
    render(){
-      const {form,loading} = this.state
+      const {form,loading,errors} = this.state
       if (loading) {
         return <Loading />
       }
@@ -53,6 +76,7 @@ class Login extends React.Component{
          form={form}
          onChange={this.hendleChange}
          onSubmit={this.hendleSubmit}
+         errors={errors}
          />
          )
   }

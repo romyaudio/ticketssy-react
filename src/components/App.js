@@ -4,6 +4,7 @@ import	Home from '../pages/Home'
 import newAccount from '../pages/newAccount'
 import Login from '../pages/Login'
 import Dashboard from '../pages/Dashboard'
+import ResetPassword from '../pages/Reset-Password'
 
 function App(){
 	return(
@@ -13,6 +14,7 @@ function App(){
              <Route exact path="/create" component={newAccount}/>
              <Route exact path="/login" component={Login}/>
              <Route exact path="/dashboard" component={Dashboard}/>
+             <Route exact path="/forgotpassword" component={ResetPassword}/>
            </Switch>
         </BrowserRouter>
 		)
