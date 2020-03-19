@@ -32,7 +32,7 @@ const FormLogin = ({form,onChange,onSubmit,errors}) => (
 	</div>
 	<button type="submit" className="btn btn-primary">Submit</button>
 	<div>
-	<Link to="forgotpassword">Forgot your Password</Link>
+	<Link to="reset/password">Forgot your Password</Link>
 
 	</div>
 	</form>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ResetPassword = ({form,onChange,onSubmit}) =>(
+const ResetPassword = ({form,onChange,onSubmit,errors}) =>(
 	<div className="container">
 	<form onSubmit={onSubmit}>
     <div className="form-group">
@@ -10,6 +10,7 @@ const ResetPassword = ({form,onChange,onSubmit}) =>(
     name="email"
     value={form.email}
     onChange={onChange}/>
+    <small>{errors.email}</small>
 
     <small className="form-text text-muted">We'll never share your email with anyone else.</small>
     </div>
