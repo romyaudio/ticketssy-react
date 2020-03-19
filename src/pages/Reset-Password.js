@@ -51,6 +51,7 @@ class ResetPassword extends React.Component{
 				this.setState({
 					loading:false,
 					successfully:true,
+					email:json
 				})
 				localStorage.setItem('token', '')
 			}
@@ -60,10 +61,11 @@ class ResetPassword extends React.Component{
 		}
 	}
 	render(){
-		const {form,errors,successfully,loading} = this.state
+		const {form,errors,successfully,loading,email} = this.state
 
 		if (successfully) {
-			return <NewPassword/>
+			return <NewPassword
+			email={email}/>
 		}
 
 		if (loading) {

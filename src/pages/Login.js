@@ -1,6 +1,8 @@
 import React from 'react'
 import FormLogin from '../components/form-Login'
 import Loading from '../components/Loading'
+import FatalError from '../components/ErrorFatal'
+//import Dashboard from './Dashboard'
 
 class Login extends React.Component{
 	state = {
@@ -41,6 +43,7 @@ class Login extends React.Component{
           if (res.status === 201) {
               this.setState({
                 loading:false,
+                //dashboard:true,
                 errors:[]
               })
 
@@ -56,18 +59,21 @@ class Login extends React.Component{
 
           }else{
             this.setState({
-              errF:json.errors,
+              error:true,
               loading:false,
             })
           }
        }catch(error){
 
        }
-//       
+//
 
    }
    render(){
-      const {form,loading,errors} = this.state
+      const {form,loading,errors,error} = this.state
+      if (error) {
+         return <FatalError/>
+       }
       if (loading) {
         return <Loading />
       }
