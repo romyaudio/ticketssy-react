@@ -3,6 +3,7 @@ import React from 'react'
 import ResetPass from '../components/form-Reset-Password'
 import Loading from '../components/Loading'
 import NewPassword from '../components/NewPassword'
+import url from '../confi/url'
 
 class ResetPassword extends React.Component{
 	state = {
@@ -38,7 +39,7 @@ class ResetPassword extends React.Component{
 				body: JSON.stringify(this.state.form)
 			}
 
-			let res = await fetch('http://localhost:8000/api/reset/password',config);
+			let res = await fetch(`${url}/reset/password`,config);
 			let json = await res.json();
 
 			if (res.status === 422) {

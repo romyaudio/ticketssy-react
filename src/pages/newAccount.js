@@ -3,6 +3,7 @@ import NewAccount from '../new/newAccount'
 import Loading from '../components/Loading'
 import ConfirEmail from '../components/Confir-Email'
 import FatalError from '../components/ErrorFatal'
+import url from '../confi/url'
 
 class newAccountContaine extends React.Component{
 	state = {
@@ -46,7 +47,7 @@ class newAccountContaine extends React.Component{
     			body: JSON.stringify(this.state.form)
     		}
 
-    		let res = await fetch('http://localhost:8000/api/create',config)
+    		let res = await fetch(`${url}/create`,config)
             let json = await res.json()
             if (res.status === 422) {
                 this.setState({

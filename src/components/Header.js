@@ -11,7 +11,7 @@ function Header({onClick,buss}) {
 		  <div className="container">
 		    <div className="row">
              <div className="logo">
-               <Link to="/">
+               <Link to="dashboard">
                	<img src={logo} alt={logo.name} />
                </Link>
              </div>

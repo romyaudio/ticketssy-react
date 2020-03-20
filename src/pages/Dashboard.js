@@ -1,7 +1,8 @@
 import React from 'react'
 import Header from '../components/Header'
 import axios from 'axios'
-axios.defaults.baseURL = 'http://localhost:8000'
+import url from '../confi/url'
+axios.defaults.baseURL = url
 
 class Dashboard extends React.Component {
 
@@ -16,7 +17,7 @@ componentDidMount() {
   let token = localStorage.getItem("token")
   axios({
    method: 'get',
-   url: '/api/user',
+   url: '/user',
    headers:{
     Authorization:`Bearer ${token}`,
   }

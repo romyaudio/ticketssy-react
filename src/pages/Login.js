@@ -2,6 +2,7 @@ import React from 'react'
 import FormLogin from '../components/form-Login'
 import Loading from '../components/Loading'
 import FatalError from '../components/ErrorFatal'
+import url from '../confi/url'
 //import Dashboard from './Dashboard'
 
 class Login extends React.Component{
@@ -37,7 +38,7 @@ class Login extends React.Component{
             body: JSON.stringify(this.state.form)
 
         }
-          let res = await fetch('http://localhost:8000/api/login',config)
+          let res = await fetch(`${url}/login`,config)
           let json = await res.json()
 
           if (res.status === 201) {
