@@ -1,3 +1,13 @@
+.chf{
+	background: #1a2a2e;
+	text-align: center;
+	margin-bottom: 10px;
+	padding: 10px;
+}
+.chf img{
+	width: 50px;
+}
+
 small{
 	color: red;
 	font-size: 15px;

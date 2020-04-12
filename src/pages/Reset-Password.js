@@ -3,7 +3,7 @@ import React from 'react'
 import ResetPass from '../components/form-Reset-Password'
 import Loading from '../components/Loading'
 import NewPassword from '../components/NewPassword'
-import url from '../confi/url'
+import url from '../config/url'
 
 class ResetPassword extends React.Component{
 	state = {
