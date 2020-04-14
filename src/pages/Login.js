@@ -1,5 +1,5 @@
 import React from 'react'
-import FormLogin from '../components/form-Login'
+import FormLogin from '../homeComponents/form-Login'
 import Loading from '../components/Loading'
 import FatalError from '../components/Error500'
 import url from '../config/url'

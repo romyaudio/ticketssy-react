@@ -1,5 +1,5 @@
 import React from 'react'
-import FormBusiness from '../components/form-buss'
+import FormBusiness from '../dashboardComponents/form-buss'
 import axios from 'axios'
 import url from '../config/url'
 import Loading from '../components/Loading'

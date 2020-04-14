@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../img/logo.png'
-import './styles/Header.css'
+import '../styles/Header.css'
 import axios from 'axios'
 import url from '../config/url'
 import { useHistory } from "react-router-dom";

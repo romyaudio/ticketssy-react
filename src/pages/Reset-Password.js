@@ -1,6 +1,6 @@
 import React from 'react'
 
-import ResetPass from '../components/form-Reset-Password'
+import ResetPass from '../homeComponents/form-Reset-Password'
 import Loading from '../components/Loading'
 import NewPassword from '../components/NewPassword'
 import url from '../config/url'

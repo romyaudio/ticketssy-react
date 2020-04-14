@@ -8,12 +8,12 @@ import Error500 from '../components/Error500'
 import { useForm } from 'react-hook-form'
 import Loading from '../components/Loading'
 import url from '../config/url'
-import Nav from '../teamComponent/nav'
+import Nav from '../teamComponents/nav'
 import '../styles/teamForm.css'
 import teamFetch  from '../hooks/teamFetch';
 import editTeam from '../hooks/editTeam'
 import deleteTeam from '../hooks/deleteTeam'
-import ListTeam from '../teamComponent/List-Team';
+import ListTeam from '../teamComponents/List-Team';
 
 
 	const FormTeam = () => {
@@ -91,6 +91,7 @@ import ListTeam from '../teamComponent/List-Team';
             setLoading(false);
             setGetTeams(true);
             setValueTeam([]);
+            setError([]);
 
           }else if( res.status === 422 ){
             setLoading(false);

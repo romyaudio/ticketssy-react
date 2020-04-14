@@ -1,5 +1,5 @@
 import React from 'react'
-import NewAccount from '../components/form-NewAccount'
+import NewAccount from '../homeComponents/form-NewAccount'
 import Loading from '../components/Loading'
 import ConfirEmail from '../components/Confir-Email'
 import FatalError from '../components/Error500'

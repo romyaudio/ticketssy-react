@@ -1,6 +1,6 @@
 import React from 'react'
 import logo from '../img/ticketssy-icon.png'
-import './styles/form-Buss.css'
+import '../styles/form-Buss.css'
 
 const formBuss = ( { form, onChange, onSubmit, errors, states } ) => ( <
     >

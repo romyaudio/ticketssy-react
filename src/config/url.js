@@ -1,2 +1,2 @@
-const url = "http://54.157.254.30/api"
+const url = "http://localhost:8000/api"
 export default url
