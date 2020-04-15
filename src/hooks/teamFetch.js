@@ -11,17 +11,13 @@ const TeamFetch = () =>{
 
 	useEffect(()=>{
 		setGetTeams(false)
-		let token = localStorage.getItem('token');
 		let iduser = localStorage.getItem('iduser')
 		axios({
 			method:'GET',
-			url:'list/teams',
+			url:'api/list/teams',
 			params: {
                         iduser: iduser
                         },
-			headers:{
-				Authorization: `Bearer ${token}`
-			}
 		})
 
 		.then(res =>{

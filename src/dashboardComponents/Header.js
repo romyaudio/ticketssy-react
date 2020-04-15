@@ -15,7 +15,7 @@ const Header = ({ buss }) => {
    const log = ({e}) =>{
 
       axios({
-        method:'GET',
+        method:'POST',
         url:'/logout',
         headers:{
           Authorization: `Bearer ${localStorage.getItem('token')}`

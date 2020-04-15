@@ -14,6 +14,7 @@ import teamFetch  from '../hooks/teamFetch';
 import editTeam from '../hooks/editTeam'
 import deleteTeam from '../hooks/deleteTeam'
 import ListTeam from '../teamComponents/List-Team';
+import axios from 'axios'
 
 
 	const FormTeam = () => {
@@ -70,45 +71,28 @@ import ListTeam from '../teamComponents/List-Team';
   
     const onSubmit = async data => { 
          setLoading(true)
-      try{
-        let uri = edit === false ? '/create/team' : '/update/team';
-        let token = localStorage.getItem("token")
-        let config = {
-             method:'post',
-             headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    Authorization:`Bearer ${token}`
-                },
-                body:JSON.stringify(data)
-        }
+      
+        let uri = edit === false ? '/api/create/team' : '/api/update/team';
 
-        let res = await fetch(`${url}${uri}`,config)
-        let json = await res.json()
+         await axios.post(`${url}${uri}`,data)
+          .then(res=>{
+                setModalShow(false);
+                setLoading(false);
+                setGetTeams(true);
+                setValueTeam([]);
+                setError([]);
 
-        if ( res.status === 201 ) {
-            setModalShow(false);
-            setLoading(false);
-            setGetTeams(true);
-            setValueTeam([]);
-            setError([]);
-
-          }else if( res.status === 422 ){
-            setLoading(false);
-            setError(json.errors);
-          }else{
-            setServerErrors(true);
-            setLoading(false);
-            setModalShow(false);
-          }
-          
-      }catch(error){
-        setLoading(false);
-        setServerErrors(true);
-        setModalShow(false);
-      }
-        
-
+          })
+          .catch(error=>{
+            if (error.response.status === 422) {
+              setLoading(false);
+              setError(error.response.data.errors);
+            }else{
+              setServerErrors(true);
+              setLoading(false);
+              setModalShow(false);
+            }
+          })
      }
      
         if (err) {

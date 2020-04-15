@@ -4,21 +4,17 @@ import axios from 'axios'
 axios.defaults.baseURL = url
 
 const DeleteTeam = () => {
-	//const [valueTeam , setValueTeam] = useState([]);
+	
 	const [detid,setDetid] = useState(null)
 
 	if (detid) {
 		setDetid(null)
-		let token = localStorage.getItem('token');
 				axios({
 					method:'POST',
-					url:'delete/team',
+					url:'api/delete/team',
 					params: {
                         id: detid
                         },
-					headers:{
-						Authorization: `Bearer ${token}`
-					}
 				})
 
 				.then(res =>{

@@ -9,16 +9,12 @@ const EditTeam = () => {
 
 	if (getid) {
 		setGetid(null)
-		let token = localStorage.getItem('token');
 				axios({
 					method:'GET',
-					url:'edit/team',
+					url:'api/edit/team',
 					params: {
                         id: getid
                         },
-					headers:{
-						Authorization: `Bearer ${token}`
-					}
 				})
 
 				.then(res =>{

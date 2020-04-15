@@ -11,7 +11,7 @@ const States = () =>{
        let token = localStorage.getItem("token")
         axios({
 	        method: 'get',
-	        url: '/states',
+	        url: '/api/states',
 	        headers:{
 	        Authorization:`Bearer ${token}`,
 	        }
