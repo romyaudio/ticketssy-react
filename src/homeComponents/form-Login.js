@@ -7,7 +7,9 @@ import { useForm } from 'react-hook-form'
 import axios from 'axios'
 import { useHistory } from "react-router-dom";
 import Error500 from '../components/Error500'
+import url from '../config/url'
 axios.defaults.withCredentials = true;
+axios.defaults.baseURL = url
 
 
 const FormLogin = () => {
@@ -20,9 +22,9 @@ const FormLogin = () => {
 
 	const onSubmit = data =>{
 		setIsloading(true)
-		axios.get('http://localhost:8000/sanctum/csrf-cookie').then(() => {
+		axios.get('/sanctum/csrf-cookie').then(() => {
 
-        axios.post('http://localhost:8000/login',data).then(res =>{
+        axios.post('/login',data).then(res =>{
 
         		setIsloading(false)
         		localStorage.setItem('business',res.data.business)
