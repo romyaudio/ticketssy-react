@@ -1,0 +1,9 @@
+.list-catg {
+    text-decoration: underline;
+}
+.list-catg:hover {
+    cursor: pointer;
+}
+td:hover {
+    cursor: pointer;
+}

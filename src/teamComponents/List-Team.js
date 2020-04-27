@@ -1,12 +1,15 @@
 import React from 'react';
 import Table from 'react-bootstrap/Table';
+import Loading from '../components/Loading'
 
+const ListTeam = ({data,handleClick,loading}) => {
 
-const ListTeam = ({data,handleClick}) => {
 
 	return (
-
+		<>
+		
       <div className="container">
+       <span>{loading ? <Loading/> : <span></span>}</span>
 		<Table hover responsive>
 		  <thead>
 		    <tr>
@@ -23,6 +26,7 @@ const ListTeam = ({data,handleClick}) => {
 		  </tbody>
         </Table>
        </div>
+       </>
 		);
 	}
  

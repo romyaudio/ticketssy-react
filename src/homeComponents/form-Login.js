@@ -7,9 +7,8 @@ import { useForm } from 'react-hook-form'
 import axios from 'axios'
 import { useHistory } from "react-router-dom";
 import Error500 from '../components/Error500'
-import url from '../config/url'
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = url
+axios.defaults.baseURL = process.env.REACT_APP_API
 
 
 const FormLogin = () => {
@@ -53,9 +52,7 @@ const FormLogin = () => {
 	<div className="row align-items-center justify-content-center vh-100 p-3 ">
 	  <div className="col-xl-3 col-lg-5 col-md-6 border border-info p-3 rounded">
 	  	<div className="">  
-           {reserror.email && <span className="errors">{reserror.email}</span>
-           || reserror.password  && <span className="errors">{reserror.password}</span> 
-           || reserror }
+           {reserror.email && <span className="errors">{reserror.email ||reserror.password || reserror}</span>}
 	    </div>
 
 	    <form  onSubmit={handleSubmit(onSubmit)}>

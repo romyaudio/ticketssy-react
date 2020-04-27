@@ -6,13 +6,7 @@ import Content from '../render/Team'
  	Authorization()
  	
 
- 		return(
- 			<Content
- 			/>
-
-
- 			)
- 	
+ 		return <Content/>
 
 }
 export default Team

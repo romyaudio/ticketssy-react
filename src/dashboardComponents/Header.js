@@ -42,6 +42,7 @@ const Header = ({ buss }) => {
    return(
     <>
       <div className="container-fluid contedor-header">
+       <div className="container">
         <Navbar collapseOnSelect expand="lg" variant="dark">
           <Navbar>
               <Link to="dashboard">
@@ -59,7 +60,7 @@ const Header = ({ buss }) => {
             <Nav className="mr-auto menu">
                 <Link to="dashboard">HOME</Link>
                 <Link to="team">Team</Link>
-                <Link>Items</Link>
+                <Link to="item">Items</Link>
                 <Link>Tickets</Link>
                 <Link>Report</Link>
             </Nav>
@@ -70,6 +71,7 @@ const Header = ({ buss }) => {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
+       </div>
       </div>
 		  
 		</>

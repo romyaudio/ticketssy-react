@@ -1,2 +1,2 @@
-const url = "http://ticketssy.com"
+const url = "http://localhost:8000"
 export default url

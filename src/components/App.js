@@ -8,6 +8,7 @@ import ResetPassword from '../pages/Reset-Password'
 import newBuss from '../pages/newBuss'
 import Team from '../pages/Team'
 import Test from '../pages/Test'
+import Item from '../pages/Item'
 
 function App() {
     return ( 
@@ -20,6 +21,7 @@ function App() {
           <Route exact path = "/reset/password" component = { ResetPassword }/> 
           <Route exact path = "/dashboard" component = { Dashboard }/> 
           <Route exact path = "/team" component = { Team }/>
+          <Route exact path = "/item" component = { Item }/>
           <Route exact path = "/test" component = { Test }/> 
         </Switch>
        </BrowserRouter>)

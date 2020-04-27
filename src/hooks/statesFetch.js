@@ -3,9 +3,8 @@ import axios from 'axios'
 import url from '../config/url'
 axios.defaults.baseURL = url
 
-const States = () =>{
+const States = (setServerErrors) =>{
 	const [states,setStates] = useState([])
-	const [err,setErr] = useState(false)
 
 	useEffect(()=>{
        let token = localStorage.getItem("token")
@@ -23,11 +22,11 @@ const States = () =>{
         })
 
         .catch(error=>{
-         setErr(true) 
+         setServerErrors(true) 
         })
 
-	},[])
-	return {states,err}
+	},[setServerErrors])
+	return {states}
 
 }
 export default States
